@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<title>Meryl Mathew</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+	</head>
+  <style>
+    .myslider {
+      -webkit-appearance: none;
+      height: 15px;
+      border-radius: 5px;  
+      background: none;
+      border: solid 2px #212931;
+      opacity: 1;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      height: 8px;
+    }
+
+    .myslider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%; 
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .myslider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+    .myslider:hover::-moz-range-thumb {
+      background: #18bfef;
+    }
+
+    .myslider:hover::-webkit-slider-thumb {
+      background: #18bfef;
+    }
+  </style>
+
+  <body>
+    <script>
+      let img;
+      let smallPoint, largePoint;
+      let slider;
+
+      function preload() {
+        img = loadImage('spiderverse.jpg');
+      }
+
+      function setup() {
+        createCanvas(windowWidth, windowHeight)
+        smallPoint = 4;
+        largePoint = 40;
+        imageMode(CENTER);
+        noStroke();
+        background(10);
+        img.loadPixels();
+        slider = createSlider(4, 40, 4);
+        slider.position(800, 175);
+        slider.style('width', '200px');
+        slider.style("transform", "rotate(-90deg)");
+        slider.addClass("myslider");
+
+        var canvas1 = document.getElementById("defaultCanvas0");
+        canvas1.style.padding = "0px";
+        background(10);
+        
+      }
+
+      function draw() {
+        for (let i = 0; i < 10; i++) {
+          let pointillize = slider.value();
+          let x = floor(random(img.width));
+          let y = floor(random(img.height));
+          let pix = img.get(x, y);
+          fill(pix);
+          ellipse(x, y, pointillize, pointillize);
+        }
+      }
+    </script>
+  </body>
+</html>

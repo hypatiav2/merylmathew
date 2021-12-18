@@ -1,0 +1,14 @@
+    @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Vidaloka&display=swap');
+
+    h1, h2 {
+      font-family: 'Vidaloka', serif;
+      color:#fefefe;
+      text-align:center;
+      font-size: 60px;
+      margin-top:200px;
+    }
+    p {
+      font-family: 'Shadows Into Light', cursive;
+      color: #fefefe;
+    }
